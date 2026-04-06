@@ -11,7 +11,8 @@ except:
 while True:
     print("\n1. Add Task")
     print("2. View Tasks")
-    print("3. Exit")
+    print("3. Remove Task")
+    print("4. Exit")
 
     choice = input("Enter choice: ")
 
@@ -28,6 +29,16 @@ while True:
             print(i, ".", task)
 
     elif choice == "3":
+        for i, task in enumerate(tasks, 1):
+            print(i, ".", task)
+
+        num = int(input("Enter task number to remove: "))
+        tasks.pop(num - 1)
+
+        with open(FILE, "w") as f:
+            json.dump(tasks, f)
+
+    elif choice == "4":
         break
 
     else:
