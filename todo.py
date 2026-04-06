@@ -10,7 +10,8 @@ except:
 
 while True:
     print("\n1. Add Task")
-    print("2. Exit")
+    print("2. View Tasks")
+    print("3. Exit")
 
     choice = input("Enter choice: ")
 
@@ -22,6 +23,11 @@ while True:
             json.dump(tasks, f)
 
     elif choice == "2":
+        print("\nYour Tasks:")
+        for i, task in enumerate(tasks, 1):
+            print(i, ".", task)
+
+    elif choice == "3":
         break
 
     else:
