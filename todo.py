@@ -4,7 +4,9 @@ FILE = "tasks.json"
 
 try:
     with open(FILE, "r") as f:
-        tasks = json.load(f)
+        raw = json.load(f)
+    # Normalize: convert plain strings to dict format
+    tasks = [{"task": t, "done": False} if isinstance(t, str) else t for t in raw]
 except:
     tasks = []
 
